@@ -4,18 +4,18 @@ $(function(){
 		var content;
 		$.each(paintings, function(i, paintings){
 			i = i + 1;
-			content += "<div class='painting'>";
-			content += "<img src='" + paintings.url + "'/>";
-			content += "<div class='meta' id='meta"+ i +"'>";
-			content += "<p>" + paintings.name + "</p>";
-			content += "<p>" + paintings.description + "</p>";
-			content += '<p>';
-			content += "<label for='email'>Email</label>";
-			content += "<input id='email' type='text' name='email'/>";
-			content += "<input id='id' type='hidden' name='id' value='" + paintings.id + "'/>";
-			content += "<button class='submit'>Submit</button>";
-			content += "</p>";
-			content += "</div></div>"; 
+			content +=	"<div class='painting'>" +
+								 	"<img src='" + paintings.url + "'/>" +
+								 	"<div class='meta' id='meta"+ i +"'>" +
+								 	"<p>" + paintings.name + "</p>" +
+									"<p>" + paintings.description + "</p>" +
+			 						"<p>" +
+			 						"<label for='email'>Email</label>" +
+			 						"<input id='email' type='text' name='email'/>" +
+		 							"<input id='id' type='hidden' name='id' value='" + paintings.id + "'/>" +
+									"<button class='submit'>Submit</button>" +
+		 							"</p>" +
+									"</div></div>"; 
 			$(content).appendTo('#gallery');
 			content = "";
 		}),
