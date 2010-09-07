@@ -1,13 +1,12 @@
-#gallery-container
+%script{:src => '/javascripts/jquery.cycle.all.min.js', :type => 'text/javascript'}
+%script{:src => '/javascripts/gallery.js', :type => 'text/javascript'}
+#contents.gallery
 	#gallery
-		#painting1{:class => 'painting'}
-		#painting2{:class => 'painting'}
-		#painting3{:class => 'painting'}
-%p
-	%a{:id =>'prev', :href => 'javascript:void(0);'} Previous
-	%a{:id =>'next', :href => 'javascript:void(0);'} Next
-%p
-	%a{:id =>'flip', :href => 'javascript:void(0);'} Flip
-%p
-	%a{:id =>'revert', :href => 'javascript:void(0);'} Revert
+	%p
+		%span.a#prev Previous
+		%span.a#next Next
+	%p
+		%span.a#more More
+		%span.a#less Less
+
 	
