@@ -9,12 +9,12 @@ $(function(){
 			content += "<div class='meta' id='meta"+ i +"'>";
 			content += "<p>" + paintings.name + "</p>";
 			content += "<p>" + paintings.description + "</p>";
-			content += "<input type='hidden' name='id' value='" + paintings.id + "'/>";
+			content += "<form id='message'><input type='hidden' name='id' value='" + paintings.id + "'/>";
 			content += '<p>';
 			content += '<label for="email">Email</label>';
 			content += '<input type="text" value="" name="email"/>';
-			content += '<button class="submit">Submit</button>';
-			content += '</p>';
+			content += '<input type="submit" value="Submit"/>';
+			content += '</p></form>';
 			content += "</div></div>"; 
 			$(content).appendTo('#gallery');
 			content = "";
@@ -42,15 +42,16 @@ $(function(){
 		hideMeta();
 	})
 	
+	/*
 	$('.submit').click(function(){
-		$.post(
-			'/gallery', 
-			{ email: "cesar@42claps.com", id: "2" },
-		  function(data){
-		  	alert("Data Loaded: " + data);
-			}
-		);
+		$.post('/gallery', { email: "cesar@42claps.com", id: "2" });
 	})
+	*/
+	
+	$('#message').submit(function() {
+		$.post('/gallery', $(this).serialize(), function(data){ alert(data); }, "text");
+	  return false;
+	});
 
 })
 
@@ -68,4 +69,5 @@ var showMeta = function(){
 	$('#less').show();
 	$('#next').hide();
 	$('#prev').hide();
+	
 }
