@@ -9,12 +9,12 @@ $(function(){
 			content += "<div class='meta' id='meta"+ i +"'>";
 			content += "<p>" + paintings.name + "</p>";
 			content += "<p>" + paintings.description + "</p>";
-			content += "<form id='message'><input type='hidden' name='id' value='" + paintings.id + "'/>";
 			content += '<p>';
-			content += '<label for="email">Email</label>';
-			content += '<input type="text" value="" name="email"/>';
-			content += '<input type="submit" value="Submit"/>';
-			content += '</p></form>';
+			content += "<label for='email'>Email</label>";
+			content += "<input id='email' type='text' name='email'/>";
+			content += "<input id='id' type='hidden' name='id' value='" + paintings.id + "'/>";
+			content += "<button class='submit'>Submit</button>";
+			content += "</p>";
 			content += "</div></div>"; 
 			$(content).appendTo('#gallery');
 			content = "";
@@ -29,6 +29,16 @@ $(function(){
 		});
 		
 		$('.meta').hide();
+		
+		$('.submit').click(function() {
+			email = $(this).siblings('#email').val();
+			id = $(this).siblings('#id').val();
+			
+			console.log("Email:" + email + "ID" + id);
+			
+			$.post('/gallery', {'email':email, 'id':id}, function(data){ alert(data); }, "text");
+			return false;
+		});
 	
 	});
 	
@@ -42,17 +52,6 @@ $(function(){
 		hideMeta();
 	})
 	
-	/*
-	$('.submit').click(function(){
-		$.post('/gallery', { email: "cesar@42claps.com", id: "2" });
-	})
-	*/
-	
-	$('#message').submit(function() {
-		$.post('/gallery', $(this).serialize(), function(data){ alert(data); }, "text");
-	  return false;
-	});
-
 })
 
 var hideMeta = function(){

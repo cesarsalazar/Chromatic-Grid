@@ -4,8 +4,6 @@ require 'haml'
 require 'json'
 require 'pony'
 
-
-
 get '/' do
   @title = 'Estructuras de colores  |  La obra de Fernando Salazar'
   haml :index
@@ -17,7 +15,9 @@ get '/gallery' do
 end
 
 post '/gallery' do
-            
+  puts params[:email] 
+  puts params[:id]          
+
   Pony.mail(
     :to             => 'csr.slzr@gmail.com',
     :from           => params[:email],
@@ -34,7 +34,7 @@ post '/gallery' do
     }
   )
   
-  status 200  
+  "Success" 
   
 end
 
