@@ -32,11 +32,8 @@ $(function(){
 		
 		$('.submit').click(function() {
 			email = $(this).siblings('#email').val();
-			id = $(this).siblings('#id').val();
-			
-			console.log("Email:" + email + "ID" + id);
-			
-			$.post('/gallery', {'email':email, 'id':id}, function(data){ alert(data); }, "text");
+			id = $(this).siblings('#id').val();			
+			$.post('/gallery', {'email':email, 'id':id}, function(data){ hideMeta(); }, "text");
 			return false;
 		});
 	

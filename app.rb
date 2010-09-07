@@ -15,8 +15,6 @@ get '/gallery' do
 end
 
 post '/gallery' do
-  puts params[:email] 
-  puts params[:id]          
 
   Pony.mail(
     :to             => 'csr.slzr@gmail.com',
