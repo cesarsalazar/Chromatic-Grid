@@ -43,7 +43,13 @@ $(function(){
 	})
 	
 	$('.submit').click(function(){
-		//AJAX Mail
+		$.post(
+			'/gallery', 
+			{ email: "cesar@42claps.com", id: "2" },
+		  function(data){
+		  	alert("Data Loaded: " + data);
+			}
+		);
 	})
 
 })

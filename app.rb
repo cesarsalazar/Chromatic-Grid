@@ -16,14 +16,13 @@ get '/gallery' do
   haml :gallery
 end
 
-# Get params and receive email
-get '/mail' do
+post '/gallery' do
             
   Pony.mail(
-    :to             => 'cesar@42claps.com',
-    :from           => 'i.am@cesarsalazar.mx',
-    :subject        => 'Howdy, Partna!',
-    :body           => 'Sweet!',
+    :to             => 'csr.slzr@gmail.com',
+    :from           => params[:email],
+    :subject        => 'Estructuras de color',
+    :body           => 'Estoy interesado en el cuadro número:' + params[:id],
     :via            => :smtp, 
     :via_options => {
     :address        => 'smtp.sendgrid.net',
@@ -33,7 +32,9 @@ get '/mail' do
     :authentication => :plain, 
     :domain         => ENV['SENDGRID_DOMAIN'],
     }
-  )  
+  )
+  
+  status 200  
   
 end
 
