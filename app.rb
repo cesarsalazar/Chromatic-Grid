@@ -1,10 +1,7 @@
-#app.rb
-
 require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'json'
-require 'sass'
 require 'pony'
 
 get '/' do
