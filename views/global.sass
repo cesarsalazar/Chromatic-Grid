@@ -19,7 +19,7 @@ span.a
 #contents
 	background: #E5E5E5 url('/images/bg.png') scroll no-repeat 50% 50%
 	width: 960px
-	overflow: hidden
+	//overflow: hidden
 	min-height: 600px
 	margin: 0 auto
 	padding-top: 50px 
@@ -48,9 +48,16 @@ span.a
 .highlight
 	font-style: italic
 	font-weight: bold
-	
+
+#controls
+	position: relative
+	float:left
+	z-index: 1000
+
 #gallery
 	margin: 0 auto	
+	position: relative
+	float: left
 	.painting
 		position: relative
 		width: 100%
@@ -61,7 +68,10 @@ span.a
 			left: 50%
 			top: 50%
 			z-index: 1000
-
-
+			
 #footer
-	height: 20px
+	position: absolute
+	float: left
+	height: 30px
+	width: 100%
+	background: #000
